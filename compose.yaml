@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: 'aubertaa/pmt-frontend'
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '4201:4200'
+    networks:
+      - frontend
+
+
+  backend:
+    image: 'aubertaa/pmt-backend'
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      args:
+        SENDGRID_API_KEY: ${SENDGRID_API_KEY}
+    ports:
+      - '8081:8081'
+    depends_on:
+      - mysql
+    networks:
+      - backend
+    restart: on-failure
+    
+  adminer:
+    image: 'adminer'
+    restart: always
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mysql
+    networks:
+      - backend
+
+  mysql:
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=pmtdb'
+      - 'MYSQL_PASSWORD=secret'
+      - 'MYSQL_ROOT_PASSWORD=verysecret'
+      - 'MYSQL_USER=myuser'
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - backend
+
+volumes:
+  mysql-data:
+
+networks:
+  backend:
+  frontend:

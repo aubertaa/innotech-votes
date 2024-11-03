@@ -1,0 +1,9 @@
+<router-outlet></router-outlet>
+
+<div *ngFor="let toast of toastService.toasts; let i = index">
+  <ngb-toast 
+  class="app-notif"
+  [header]="'Information'" (hidden)="removeToast(i)">
+    {{ toast }}
+  </ngb-toast>
+</div>

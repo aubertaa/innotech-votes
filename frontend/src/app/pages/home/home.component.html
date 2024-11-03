@@ -1,0 +1,47 @@
+<div class="container-fluid position-relative navbar header bg-primary">
+  <a class="navbar-brand ms-5">Innotech Votes - Accueil</a>
+</div>
+
+<div class="text-center mt-5"><h1>Liste des membres</h1></div>
+<div class="container mt-5">
+  <div class="row justify-content-left">
+    <div class="col-12">
+      <table class="members-table align-center text-center">
+        <thead>
+          <tr class="table-header">
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date de naissance</th>
+            <th>Statut du vote</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="members$ | async as members">
+            <ng-container *ngFor="let member of members">
+              <tr class="table-row">
+                <td>{{ member?.id }}</td>
+                <td><strong>{{ member.nom | uppercase }}</strong></td>
+                <td>{{ member.prenom }}</td>
+                <td>{{ member.date_de_naissance |  date: 'dd/MM/yyyy' }}</td>
+                <td class="text-center">
+                  <button
+                    [disabled]="member.voteEnregistre"
+                    class="btn m-1 btn-lg"
+                    (click)="setVoteEnregistreForMember(member, true)"
+                    [ngClass]="{
+                      'btn-primary': !member.voteEnregistre,
+                      'btn-secondary': member.voteEnregistre
+                    }"
+                  >
+                    {{ member.voteEnregistre ? "A voté" : "Voter" }}
+                  </button>
+                </td>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

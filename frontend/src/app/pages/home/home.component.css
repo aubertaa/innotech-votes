@@ -1,0 +1,31 @@
+
+.members-table {
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.table-header th {
+    background-color: #007bff; /* Blue background */
+    color: white;              /* White text */
+    padding: 10px;            /* Padding for better spacing */
+    font-size: 1.1em;         /* Slightly larger font */
+    text-align: center;       /* Center text */
+}
+
+.table-row td {
+    border: 1px solid #ddd;   /* Light gray border */
+    padding: 8px;             /* Padding for table cells */
+}
+
+.table-row:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background for even rows */
+}
+
+.table-row:hover {
+    background-color: #e9ecef; /* Change background on hover */
+}
+
+.table-row td:last-child {
+    border-right: none; /* Remove border for last cell */
+}
