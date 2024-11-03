@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   frontend:
-    image: 'aubertaa/pmt-frontend'
+    image: 'aubertaa/innotech-votes-frontend'
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -13,12 +13,10 @@ services:
 
 
   backend:
-    image: 'aubertaa/pmt-backend'
+    image: 'aubertaa/innotech-votes-backend'
     build:
       context: ./backend
       dockerfile: Dockerfile
-      args:
-        SENDGRID_API_KEY: ${SENDGRID_API_KEY}
     ports:
       - '8081:8081'
     depends_on:

@@ -4,11 +4,19 @@
 
 ## Description
 
-XXXXXXXXX
+- Le scrutin ayant lieu dans quelques heures seulement, l’urgence première est de fiabiliser l’émargement des votants et de s’assurer par un outil adapté que chaque membre ne vote bien qu’une seule fois (des réclamations ont en effet été reçues à ce sujet lors de la précédente élection).
+- L’interface doit être très simple d’utilisation pour permettre aux membres du bureau de vote de l’utiliser facilement et sans ambiguïté.
+- Les membres de l’association étant connus, la liste sera insérée directement en base de données pour cette version.
+
 
 ## Architecture
+L’architecture est la suivante. Cette architecture évolutive et les technologies choisies permettront de servir au mieux les fonctionnalités demandées, tout en assurant la présentation d’une interface moderne et intuitive :
+![img_1.png](img_1.png)
 
 Tous les composants de l'application sont conteneurisés à l'aide de Docker.
+
+![img_2.png](img_2.png)
+
 Cela permet de garantir que l'application fonctionne de la même manière sur tous les environnements.
 Cela facilite également le déploiement et l'exécution de l'application.
 
@@ -23,7 +31,7 @@ La base de données utilisée est MySQL. (une base in memory H2 est utilisé pou
 
 Le modèle de la base de données est le suivant :
 
-XXXXXXXXX
+![img_4.png](img_4.png)
 
 ## Fonctionnalités
 
@@ -34,25 +42,21 @@ Les fonctionnalités de la première version de l'application sont les suivantes
 
 Les fonctionnalités prévues pour la version 2 sont les suivantes :
 
--	Avant le scrutin
+- Avant le scrutin
   - Ajout/suppression/modification de membres de l’association
   - Création d’un scrutin
   - Identification des candidats
--	Pendant le scrutin
+- Pendant le scrutin
   - Formulaire de vote
   - Comptage des voix exprimées pour chaque candidat
   - Présentation du taux de participation
--	Clôture du scrutin
+- Clôture du scrutin
   - Historisation du nombre de votants
   - Réinitialisation du statut ‘à voté’ de tous les membres de l’association
   - Production de graphiques de résultats
 
 
 ## Documentation
-
-### JavaDoc 
-
-- La documentation JavaDoc du projet est disponible dans le dossier `backend/doc/`
 
 ### Swagger UI
 
