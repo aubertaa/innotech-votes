@@ -35,11 +35,13 @@ Le modèle de la base de données est le suivant :
 
 ## Fonctionnalités
 
+### V1
 Les fonctionnalités de la première version de l'application sont les suivantes :
 
 - Affichage de la liste des membres de l'association
 - Emargement (définitif) lors du vote
 
+### V2
 Les fonctionnalités prévues pour la version 2 sont les suivantes :
 
 - Avant le scrutin
@@ -55,6 +57,9 @@ Les fonctionnalités prévues pour la version 2 sont les suivantes :
   - Réinitialisation du statut ‘à voté’ de tous les membres de l’association
   - Production de graphiques de résultats
 
+Le modèle de données devra alors évoluer vers ceci:
+
+![img_3.png](img_3.png)
 
 ## Documentation
 
