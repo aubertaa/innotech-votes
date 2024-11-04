@@ -23,7 +23,7 @@
 }
 
 .table-row:hover {
-    background-color: #e9ecef; /* Change background on hover */
+    background-color: #ffefef; /* Change background on hover */
 }
 
 .table-row td:last-child {
